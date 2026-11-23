@@ -69,7 +69,7 @@ const popupContainerStyle = {
   backgroundColor: "#fff",
   borderRadius: "8px",
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
 };
 
 const titleStyle = {

@@ -1,4 +1,4 @@
 export default interface Link {
-    title: String
-    url: string
+    title?: string
+    url?: string
   }

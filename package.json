@@ -27,9 +27,20 @@
     "typescript": "5.3.3"
   },
   "manifest": {
-    "host_permissions": [
-      "https://*/*",
-      "http://*/*"
+    "permissions": [
+      "tabs",
+      "clipboardWrite"
+    ]
+  },
+  "packageManager": "pnpm@10.4.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract",
+      "sharp"
     ]
   }
 }
