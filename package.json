@@ -6,8 +6,11 @@
   "author": "gelintonx",
   "scripts": {
     "dev": "plasmo dev",
+    "dev:firefox": "plasmo dev --target=firefox-mv3",
     "build": "plasmo build",
-    "package": "plasmo package"
+    "build:firefox": "plasmo build --target=firefox-mv3",
+    "package": "plasmo package",
+    "package:firefox": "plasmo package --target=firefox-mv3"
   },
   "dependencies": {
     "@types/webextension-polyfill": "^0.12.3",
@@ -30,7 +33,18 @@
     "permissions": [
       "tabs",
       "clipboardWrite"
-    ]
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "grabyourlinks@gelintonx",
+        "strict_min_version": "140.0",
+        "data_collection_permissions": {
+          "required": [
+            "none"
+          ]
+        }
+      }
+    }
   },
   "packageManager": "pnpm@10.4.1",
   "pnpm": {

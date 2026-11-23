@@ -15,12 +15,20 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build the extension
-        run: pnpm build
-      - name: Package the extension into a zip artifact
-        run: pnpm package
+      - name: Build the extension (Chrome + Firefox)
+        run: |
+          pnpm build
+          pnpm build:firefox
+      - name: Package the extension into zip artifacts
+        run: |
+          pnpm package
+          pnpm package:firefox
+      - name: Zip source code (required by Firefox Add-ons review)
+        run: git archive --format=zip -o build/source.zip HEAD
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
-          artifact: build/chrome-mv3-prod.zip
+          chrome-file: build/chrome-mv3-prod.zip
+          firefox-file: build/firefox-mv3-prod.zip
+          source-file: build/source.zip
